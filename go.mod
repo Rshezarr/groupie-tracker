@@ -1,3 +1,3 @@
-module gr
+module grTracker
 
 go 1.17
