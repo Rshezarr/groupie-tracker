@@ -1,5 +1,10 @@
 package models
 
+type Store struct {
+	Artist    []Artist
+	Relations Relations
+}
+
 type Relations struct {
 	Concerts []Concert `json:"index"`
 }
@@ -19,6 +24,6 @@ type Artist struct {
 }
 
 type Error struct {
-	ErrorCode string
+	ErrorCode int
 	ErrorText string
 }

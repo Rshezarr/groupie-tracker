@@ -15,7 +15,7 @@ function init() {
 
     let myGeocoder = ymaps.geocode(newCoord, {
       results: 1,
-      prefLang: "en",
+      prefLang: "eng",
     });
 
     myGeocoder.then(function (res) {

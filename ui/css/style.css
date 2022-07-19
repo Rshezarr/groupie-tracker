@@ -11,8 +11,8 @@
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
-:focus,
-:active {
+*:focus,
+*:active {
   outline: none;
 }
 a:focus,
@@ -77,13 +77,75 @@ h6 {
   font-size: inherit;
   font-weight: 400;
 }
+
+textarea:focus,
+textarea.form-control:focus,
+input.form-control:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus,
+[type="text"].form-control:focus,
+[type="password"].form-control:focus,
+[type="email"].form-control:focus,
+[type="tel"].form-control:focus,
+[contenteditable].form-control:focus {
+  box-shadow: inset 0 -1px 0 #ddd;
+}
 /* END ---------------------------------------------------------------------------------------------------------------------------------------- */
 
 /* Index styles ---------------------------------------------------------------------------------------------------------------------------------------- */
 body {
-  background-color: #003049;
-  color: #fff;
+  background-color: #1c233f;
+  color: #dcebff;
   font-family: "Montserrat", sans-serif;
+}
+
+form {
+  position: relative;
+  width: 100%;
+  background: #abb3d6;
+  color: #000;
+  border-radius: 0.7rem;
+}
+
+input,
+button {
+  height: 2.5rem;
+  border: 0;
+  color: #000;
+  font-size: calc(15px + 7 * ((100vw - 320px) / (5000 - 320)));
+}
+
+input[type="search"] {
+  width: 100%;
+  padding: 0 10px;
+  background: #fff;
+  border-radius: 0.7rem;
+  appearance: none;
+  transition: all 0.3s cubic-bezier(0, 0, 0.43, 1.49);
+  transition-property: width, border-radius;
+  z-index: 1;
+  position: relative;
+}
+
+button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: #abb3d6;
+  border-radius: 0 0.7rem 0.7rem 0;
+  padding: 0 10px;
+}
+
+input:not(:placeholder-shown) {
+  border-radius: 0.7rem 0 0 0.7rem;
+  width: calc(100% - 80px);
+}
+
+input:not(:placeholder-shown) button {
+  display: block;
+  width: 5%;
 }
 
 .row {
@@ -96,17 +158,37 @@ body {
   margin: 0 auto;
 }
 
+.main_title {
+  margin-bottom: -15px;
+}
+
+.main_title a {
+  color: #abb3d6;
+  transition: all 0.2s ease;
+}
+
+.main_title:hover a {
+  color: #a4a8b8;
+}
+
 .header_title {
-  font-size: calc(35px + 16 * ((100vw - 320px) / (1600 - 320)));
+  font-size: calc(30px + 13 * ((100vw - 320px) / (1600 - 320)));
   margin: 20px 0;
 }
 
 .group_img {
+  width: 100%;
+  border-radius: 5px;
   transition: all 0.3s ease-out;
+}
+
+.datalist_cities {
+  text-transform: uppercase;
 }
 
 .container_card {
   position: relative;
+  overflow: hidden;
 }
 
 .container_card:hover .group_name {
@@ -115,6 +197,7 @@ body {
 
 .container_card:hover .group_img {
   filter: brightness(40%);
+  transform: scale(1.1);
 }
 
 .group_name {
@@ -138,10 +221,11 @@ body {
   position: absolute;
   top: 0;
   left: 0;
-  background-color: #d3d2d2;
+  background-color: #dcebff;
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 2;
 }
 
 .loader {
@@ -163,8 +247,12 @@ body {
 /* END ---------------------------------------------------------------------------------------------------------------------------------------- */
 
 /* Artist page styles ---------------------------------------------------------------------------------------------------------------------------------------- */
+.main_card-parent {
+  background-color: #dcebff;
+}
+
 .main_card {
-  color: #003049;
+  color: #1c233f;
 }
 
 .artist_name {
