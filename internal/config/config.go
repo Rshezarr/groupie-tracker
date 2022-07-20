@@ -21,7 +21,7 @@ type Config struct {
 
 func NewConfig() *Config {
 	return &Config{
-		Addr:           os.Getenv("PORT"),
+		Addr:           ":" + os.Getenv("PORT"),
 		ReadTimeout:    timeout,
 		WriteTimeout:   timeout,
 		MaxHeaderBytes: oneMB,
