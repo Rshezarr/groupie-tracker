@@ -1,9 +1,11 @@
 package config
 
-import "time"
+import (
+	"os"
+	"time"
+)
 
 const (
-	port     = ":8090"
 	oneMB    = 1 << 20
 	timeout  = 10 * time.Second
 	tempPath = "ui/*.html"
@@ -19,7 +21,7 @@ type Config struct {
 
 func NewConfig() *Config {
 	return &Config{
-		Addr:           port,
+		Addr:           os.Getenv("PORT"),
 		ReadTimeout:    timeout,
 		WriteTimeout:   timeout,
 		MaxHeaderBytes: oneMB,
